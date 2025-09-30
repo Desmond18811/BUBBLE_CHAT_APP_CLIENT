@@ -6,12 +6,12 @@ import { getColor } from "@/lib/utils";
 import { getImageUrl } from "@/utills/imageUtils";
 
 const ChatHeader = () => {
-    const { closeChat, selectedChatData, theme } = useAppStore();
+    const { closeChat, selectedChatData } = useAppStore();
 
     if (!selectedChatData) return null;
 
     return (
-        <div className={`h-[10vh] border-b ${theme === 'dark' ? 'border-[#2f303b]' : 'border-gray-200'} flex items-center justify-between px-3 sm:px-4 md:px-5`}>
+        <div className="h-[10vh] border-b border-[#2f303b] flex items-center justify-between px-3 sm:px-4 md:px-5">
             <div className="flex gap-3 items-center flex-1">
                 {/* Back button for mobile */}
                 <button
@@ -39,7 +39,7 @@ const ChatHeader = () => {
                             </div>
                         )}
                     </Avatar>
-                    <div className={`${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+                    <div className="text-white">
                         <p className="font-medium text-sm truncate max-w-[150px] sm:max-w-[200px] md:max-w-none">
                             {selectedChatData.firstName
                                 ? `${selectedChatData.firstName} ${selectedChatData.lastName || ''}`
@@ -55,7 +55,7 @@ const ChatHeader = () => {
             {/* Close button for desktop */}
             <div className="hidden md:flex items-center justify-center">
                 <button
-                    className={`${theme === 'dark' ? 'text-neutral-500 hover:text-white' : 'text-gray-500 hover:text-gray-800'} duration-300 transition-all focus:outline-none`}
+                    className="text-neutral-500 hover:text-white duration-300 transition-all focus:outline-none"
                     onClick={closeChat}
                 >
                     <RiCloseFill className="text-2xl" />

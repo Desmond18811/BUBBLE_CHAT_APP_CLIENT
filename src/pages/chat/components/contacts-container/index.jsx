@@ -8,7 +8,6 @@ import { useAppStore } from "@/store";
 import ContactList from "@/components/ContactList";
 
 const Logo = () => {
-    const { theme } = useAppStore();
     return (
         <div className="flex p-5 justify-start items-center gap-3">
             <svg
@@ -25,7 +24,7 @@ const Logo = () => {
                 <circle cx="36" cy="16" r="6" fill="#4DABF7" fillOpacity="0.5" />
                 <circle cx="34" cy="14" r="1" fill="white" fillOpacity="0.7" />
             </svg>
-            <span className={`text-3xl font-semibold ${theme === 'dark' ? 'text-blue-100' : 'text-blue-800'}`}>Bubble</span>
+            <span className="text-3xl font-semibold text-blue-100">Bubble</span>
         </div>
     );
 };
@@ -39,7 +38,7 @@ const Title = ({ text }) => {
 };
 
 const ContactsContainer = () => {
-    const { setDirectMessagesContacts, directMessagesContacts, theme } = useAppStore();
+    const { setDirectMessagesContacts, directMessagesContacts } = useAppStore();
 
     useEffect(() => {
         const getContacts = async () => {
@@ -58,7 +57,7 @@ const ContactsContainer = () => {
     }, [setDirectMessagesContacts]);
 
     return (
-        <div className={`w-full md:w-60 ${theme === 'dark' ? 'bg-[#1b1c24]' : 'bg-gray-100'} flex flex-col h-screen`}>
+        <div className="w-full md:w-60 bg-[#1b1c24] flex flex-col h-screen">
             {/* TOP SECTION */}
             <div className="flex-1">
                 <Logo />

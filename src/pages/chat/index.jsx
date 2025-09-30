@@ -8,7 +8,7 @@ import EmptyChatContainer from "./components/empty-chat-contact"
 import ChatContainer from "./components/chat-container"
 
 const Chat = () => {
-    const {userInfo, selectedChatType, theme} = useAppStore()
+    const {userInfo, selectedChatType} = useAppStore()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -19,9 +19,9 @@ const Chat = () => {
     }, [userInfo, navigate]);
 
     return (
-        <div className={`flex h-[100vh] ${theme === 'dark' ? 'text-white bg-[#1b1c24]' : 'text-black bg-gray-100'} overflow-hidden`}>
+        <div className="flex h-[100vh] text-white bg-[#1b1c24] overflow-hidden">
             {/* Hide contacts on mobile when chat is selected */}
-            <div className={`${selectedChatType !== undefined ? 'hidden md:flex' : 'flex'} md:border-r ${theme === 'dark' ? 'md:border-[#2f303b]' : 'md:border-gray-200'}`}>
+            <div className={`${selectedChatType !== undefined ? 'hidden md:flex' : 'flex'} md:border-r md:border-[#2f303b]`}>
                 <ContactsContainer/>
             </div>
 

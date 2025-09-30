@@ -17,7 +17,7 @@ const MessageBar = () => {
     const [emojiPickerOpen, setEmojiPickerOpen] = useState(false);
     const [showAudioRecorder, setShowAudioRecorder] = useState(false);
     const emojiRef = useRef(null);
-    const { selectedChatType, selectedChatData, userInfo, theme } = useAppStore();
+    const { selectedChatType, selectedChatData, userInfo } = useAppStore();
     const socket = useSocket();
 
     useEffect(() => {
@@ -135,7 +135,7 @@ const MessageBar = () => {
     };
 
     return (
-        <div className={`h-[10vh] ${theme === 'dark' ? 'bg-[#1c1d25]' : 'bg-gray-100'} flex items-center px-3 sm:px-4 md:px-6 gap-2 md:gap-4 border-t ${theme === 'dark' ? 'border-gray-800' : 'border-gray-300'} relative`}>
+        <div className="h-[10vh] bg-[#1c1d25] flex items-center px-3 sm:px-4 md:px-6 gap-2 md:gap-4 border-t border-gray-800 relative">
             {/* Audio Recorder */}
             {showAudioRecorder && (
                 <div className="absolute bottom-16 left-3 sm:left-4 md:left-6 z-10">
@@ -147,16 +147,16 @@ const MessageBar = () => {
             )}
 
             {/* Input container */}
-            <div className={`flex items-center flex-1 ${theme === 'dark' ? 'bg-[#2a2b33]' : 'bg-white'} rounded-lg px-2 sm:px-3 md:px-4 py-2 gap-2 md:gap-3 shadow-sm`}>
+            <div className="flex items-center flex-1 bg-[#2a2b33] rounded-lg px-2 sm:px-3 md:px-4 py-2 gap-2 md:gap-3 shadow-sm">
                 <div className="flex gap-1 sm:gap-2">
                     <button
-                        className={`${theme === 'dark' ? 'text-neutral-500 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors duration-200 p-1`}
+                        className="text-neutral-500 hover:text-white transition-colors duration-200 p-1"
                         onClick={() => setShowAudioRecorder(true)}
                     >
                         <GrMicrophone className="text-lg sm:text-xl" />
                     </button>
                     <button
-                        className={`${theme === 'dark' ? 'text-neutral-500 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors duration-200 p-1`}
+                        className="text-neutral-500 hover:text-white transition-colors duration-200 p-1"
                         onClick={handleAttachmentClick}
                     >
                         <GrAttachment className="text-lg sm:text-xl" />
@@ -172,7 +172,7 @@ const MessageBar = () => {
 
                 <input
                     type="text"
-                    className={`flex-1 bg-transparent ${theme === 'dark' ? 'text-white placeholder-neutral-400' : 'text-black placeholder-gray-400'} focus:outline-none text-sm sm:text-base`}
+                    className="flex-1 bg-transparent text-white placeholder-neutral-400 focus:outline-none text-sm sm:text-base"
                     placeholder="Enter message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -180,7 +180,7 @@ const MessageBar = () => {
                 />
 
                 <button
-                    className={`${theme === 'dark' ? 'text-neutral-500 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors duration-300 p-1`}
+                    className="text-neutral-500 hover:text-white transition-colors duration-300 p-1"
                     onClick={() => setEmojiPickerOpen((prev) => !prev)}
                 >
                     <RiEmojiStickerLine className="text-lg sm:text-xl" />
@@ -190,7 +190,7 @@ const MessageBar = () => {
                 {emojiPickerOpen && (
                     <div ref={emojiRef} className="absolute bottom-16 right-16 sm:right-18 md:right-20 z-10">
                         <EmojiPicker
-                            theme={theme}
+                            theme="dark"
                             onEmojiClick={handleAddEmoji}
                             autoFocusSearch={false}
                         />
@@ -200,7 +200,7 @@ const MessageBar = () => {
 
             {/* Send button */}
             <button
-                className={`${theme === 'dark' ? 'bg-blue-600 hover:bg-blue-500' : 'bg-blue-500 hover:bg-blue-400'} text-white p-2 sm:p-2.5 md:p-3 rounded-lg transition-colors duration-200`}
+                className="bg-blue-600 hover:bg-blue-500 text-white p-2 sm:p-2.5 md:p-3 rounded-lg transition-colors duration-200"
                 onClick={handleSendMessage}
             >
                 <IoSend className="text-lg sm:text-xl" />
