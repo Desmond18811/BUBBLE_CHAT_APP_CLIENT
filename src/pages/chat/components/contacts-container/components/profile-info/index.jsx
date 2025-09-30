@@ -98,7 +98,7 @@ const ProfileInfo = () => {
                     </TooltipProvider>
 
                     {/* Vertical Divider */}
-                    <div className=" w-px bg-gray-600"></div>
+                    <div className="w-px bg-gray-600"></div>
                 </div>
             </div>
         </div>
