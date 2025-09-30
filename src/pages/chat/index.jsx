@@ -21,7 +21,7 @@ const Chat = () => {
     return (
         <div className="flex h-[100vh] text-white bg-[#1b1c24] overflow-hidden">
             {/* Hide contacts on mobile when chat is selected */}
-            <div className={`${selectedChatType !== undefined ? 'hidden md:flex' : 'flex'} md:border-r md:border-[#2f303b]`}>
+            <div className={`${selectedChatType !== undefined ? 'hidden md:flex' : 'flex'} md:border-r-2 md:border-[#2f303b]`}>
                 <ContactsContainer/>
             </div>
 

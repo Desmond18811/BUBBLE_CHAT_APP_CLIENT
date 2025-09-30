@@ -64,7 +64,7 @@ const ProfileInfo = () => {
                     </div>
                 </div>
 
-                <div className="flex gap-4">
+                <div className="flex gap-4 items-center">
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
@@ -96,6 +96,9 @@ const ProfileInfo = () => {
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
+
+                    {/* Vertical Divider */}
+                    <div className=" w-px bg-gray-600"></div>
                 </div>
             </div>
         </div>
